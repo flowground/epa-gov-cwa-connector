@@ -1,0 +1,895 @@
+{
+    "type": "object",
+    "properties": {
+        "output": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "JSONP",
+                "JSON",
+                "XML"
+            ]
+        },
+        "p_fn": {
+            "required": false,
+            "type": "string"
+        },
+        "p_sa": {
+            "required": false,
+            "type": "string"
+        },
+        "p_sa1": {
+            "required": false,
+            "type": "string"
+        },
+        "p_ct": {
+            "required": false,
+            "type": "string"
+        },
+        "p_co": {
+            "required": false,
+            "type": "string"
+        },
+        "p_fips": {
+            "required": false,
+            "type": "string"
+        },
+        "p_st": {
+            "required": false,
+            "type": "string"
+        },
+        "p_zip": {
+            "required": false,
+            "type": "string"
+        },
+        "p_frs": {
+            "required": false,
+            "type": "string"
+        },
+        "p_reg": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10"
+            ]
+        },
+        "p_sic": {
+            "required": false,
+            "type": "string"
+        },
+        "p_ncs": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pen": {
+            "required": false,
+            "type": "string"
+        },
+        "p_c1lat": {
+            "required": false,
+            "type": "number"
+        },
+        "p_c1lon": {
+            "required": false,
+            "type": "number"
+        },
+        "p_c2lat": {
+            "required": false,
+            "type": "number"
+        },
+        "p_c2lon": {
+            "required": false,
+            "type": "number"
+        },
+        "p_usmex": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "p_sic2": {
+            "required": false,
+            "type": "string"
+        },
+        "p_sic4": {
+            "required": false,
+            "type": "string"
+        },
+        "p_fa": {
+            "required": false,
+            "type": "string"
+        },
+        "p_ff": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y"
+            ]
+        },
+        "p_act": {
+            "required": false,
+            "type": "string"
+        },
+        "p_maj": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "p_mact": {
+            "required": false,
+            "type": "string"
+        },
+        "p_fea": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "W",
+                "N"
+            ]
+        },
+        "p_feay": {
+            "required": false,
+            "type": "number",
+            "enum": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        "p_feaa": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "A",
+                "E",
+                "S"
+            ]
+        },
+        "p_iea": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "W",
+                "N"
+            ]
+        },
+        "p_ieay": {
+            "required": false,
+            "type": "number",
+            "enum": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        "p_ieaa": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "E",
+                "S"
+            ]
+        },
+        "p_qiv": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "0",
+                "GT1",
+                "GT2",
+                "GT4",
+                "GT8",
+                "12"
+            ]
+        },
+        "p_iv": {
+            "required": false,
+            "type": "string"
+        },
+        "p_impw": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "p_imp_cau_grp": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ALGAL GROWTH",
+                "AMMONIA",
+                "BIOTOXINS",
+                "CAUSE UNKNOWN",
+                "CAUSE UNKNOWN - FISH KILLS",
+                "CAUSE UNKNOWN - IMPAIRED BIOTA",
+                "CHLORINE",
+                "DIOXINS",
+                "FISH CONSUMPTION ADVISORY",
+                "FLOW ALTERATION(S)",
+                "HABITAT ALTERATIONS",
+                "MERCURY",
+                "METALS (OTHER THAN MERCURY)",
+                "NOXIOUS AQUATIC PLANTS",
+                "NUISANCE EXOTIC SPECIES",
+                "NUISANCE NATIVE SPECIES",
+                "NUTRIENTS",
+                "OIL AND GREASE",
+                "ORGANIC ENRICHMENT/OXYGEN DEPLETION",
+                "OTHER CAUSE",
+                "PATHOGENS",
+                "PESTICIDES",
+                "PH/ACIDITY/CAUSTIC CONDITIONS",
+                "POLYCHLORINATED BIPHENYLS (PCBS)",
+                "RADIATION",
+                "SALINITY/TOTAL DISSOLVED SOLIDS/CHLORIDES/SULFATES",
+                "SEDIMENT",
+                "TASTE, COLOR AND ODOR",
+                "TEMPERATURE",
+                "TOTAL TOXICS",
+                "TOXIC INORGANICS",
+                "TOXIC ORGANICS",
+                "TRASH",
+                "TURBIDITY"
+            ]
+        },
+        "p_imp_pol": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "p_trep": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "NONE",
+                "CURR",
+                "NOTCURR"
+            ]
+        },
+        "p_pm": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "NONE",
+                "GT5",
+                "GT10",
+                "GT25",
+                "GT50",
+                "GT75"
+            ]
+        },
+        "p_pd": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "NONE",
+                "GT100",
+                "GT500",
+                "GT1000",
+                "GT5000",
+                "GT10000",
+                "GT20000"
+            ]
+        },
+        "p_ico": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "p_huc": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pid": {
+            "required": false,
+            "type": "string"
+        },
+        "p_med": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "A",
+                "M",
+                "R",
+                "S",
+                "ALL"
+            ]
+        },
+        "p_ysl": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "W",
+                "N",
+                "NV"
+            ]
+        },
+        "p_ysly": {
+            "required": false,
+            "type": "number",
+            "enum": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        "p_ysla": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "E",
+                "S",
+                "A"
+            ]
+        },
+        "p_qs": {
+            "required": false,
+            "type": "string"
+        },
+        "p_sfs": {
+            "required": false,
+            "type": "string"
+        },
+        "p_tribeid": {
+            "required": false,
+            "type": "number"
+        },
+        "p_tribename": {
+            "required": false,
+            "type": "string"
+        },
+        "p_tribedist": {
+            "required": false,
+            "type": "number"
+        },
+        "p_pstat": {
+            "required": false,
+            "type": "string"
+        },
+        "p_ptype": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pcomp": {
+            "required": false,
+            "type": "string"
+        },
+        "p_plimits": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "p_pcss": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ALL",
+                "GE1",
+                "GE10",
+                "GE50"
+            ]
+        },
+        "p_pexp": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "EXP",
+                "EXPLE1YR",
+                "EXPGT1YR"
+            ]
+        },
+        "p_owop": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "FEDERAL",
+                "POTW",
+                "NON-POTW"
+            ]
+        },
+        "p_agoo": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "AND",
+                "OR"
+            ]
+        },
+        "p_idt1": {
+            "required": false,
+            "type": "string"
+        },
+        "p_idt2": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pityp": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pfead1": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pfead2": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pfeat": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pccs": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pexcd": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "0",
+                "GE0",
+                "GE10",
+                "GE50",
+                "GE100"
+            ]
+        },
+        "p_psncq": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "GT1",
+                "GE1",
+                "GT2",
+                "GE2",
+                "GT4",
+                "GE4",
+                "GT8",
+                "GE8",
+                "GT12",
+                "GE12"
+            ]
+        },
+        "p_pctrack": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Off",
+                "Partial",
+                "On"
+            ]
+        },
+        "p_dwd": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "0",
+                "GT0",
+                "GT1000",
+                "GT5000",
+                "GT10000",
+                "GT20000",
+                "GT50000"
+            ]
+        },
+        "p_pt": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "0",
+                "GT0",
+                "GT1000",
+                "GT5000",
+                "GT10000",
+                "GT20000",
+                "GT50000"
+            ]
+        },
+        "p_pdwdist": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "N",
+                "LT1",
+                "LT2",
+                "LT5",
+                "LT10",
+                "LT15"
+            ]
+        },
+        "p_pswdpc": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pswdmp": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+            ]
+        },
+        "p_pswpol": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pswcas": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pswparam": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pswvio": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "p_wbd": {
+            "required": false,
+            "type": "string"
+        },
+        "p_radwbd": {
+            "required": false,
+            "type": "string"
+        },
+        "p_frswbd": {
+            "required": false,
+            "type": "string"
+        },
+        "p_fntype": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ALL",
+                "CONTAINS",
+                "EXACT",
+                "BEGINS"
+            ]
+        },
+        "p_pidall": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "p_months_last_dmr": {
+            "required": false,
+            "type": "number"
+        },
+        "p_last_dmr_within": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "W",
+                "N"
+            ]
+        },
+        "p_indsw": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "p_msgp_ptype": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "NOI",
+                "NOE"
+            ]
+        },
+        "p_mon_type": {
+            "required": false,
+            "type": "string"
+        },
+        "p_iagency": {
+            "required": false,
+            "type": "string"
+        },
+        "p_isws": {
+            "required": false,
+            "type": "string"
+        },
+        "p_iswss": {
+            "required": false,
+            "type": "string"
+        },
+        "p_iswssID": {
+            "required": false,
+            "type": "string"
+        },
+        "p_ds1": {
+            "required": false,
+            "type": "string"
+        },
+        "p_ds2": {
+            "required": false,
+            "type": "string"
+        },
+        "p_da1": {
+            "required": false,
+            "type": "string"
+        },
+        "p_da2": {
+            "required": false,
+            "type": "string"
+        },
+        "p_MS4": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "p_ooFN": {
+            "required": false,
+            "type": "string"
+        },
+        "p_ooFNtype": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ALL",
+                "EXACT",
+                "BEGINS",
+                "CONTAINS"
+            ]
+        },
+        "p_ooSA": {
+            "required": false,
+            "type": "string"
+        },
+        "p_ooSA1": {
+            "required": false,
+            "type": "string"
+        },
+        "p_ooCt": {
+            "required": false,
+            "type": "string"
+        },
+        "p_ooSt": {
+            "required": false,
+            "type": "string"
+        },
+        "p_ooZip": {
+            "required": false,
+            "type": "string"
+        },
+        "p_fac_ico": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "p_icoo": {
+            "required": false,
+            "type": "string"
+        },
+        "p_fac_icos": {
+            "required": false,
+            "type": "string"
+        },
+        "p_ejscreen": {
+            "required": false,
+            "type": "string"
+        },
+        "p_alrexceed": {
+            "required": false,
+            "type": "number"
+        },
+        "p_limit_addr": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "p_lat": {
+            "required": false,
+            "type": "number"
+        },
+        "p_long": {
+            "required": false,
+            "type": "number"
+        },
+        "p_radius": {
+            "required": false,
+            "type": "number"
+        },
+        "p_decouple": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "p_ejscreen_over80cnt": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_flag": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_fac_type": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_trtmnt_procs": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_analy_method_catgry": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_total_volume_amt": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_mgmt_prctce_type": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_mgmt_prctce_stype": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_mgmt_prctce_handler": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_mgmt_container": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_mgmt_pathogen": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_mgmt_pathred": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_mgmt_vector": {
+            "required": false,
+            "type": "string"
+        },
+        "p_insp_deficiencies": {
+            "required": false,
+            "type": "number"
+        },
+        "p_bio_mgmt_def_category": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_mgmt_deficiencies": {
+            "required": false,
+            "type": "number"
+        },
+        "p_bio_vio_code": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_current_vio": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "p_bio_qtrs_in_vio": {
+            "required": false,
+            "type": "number"
+        },
+        "p_bio_rpt_year": {
+            "required": false,
+            "type": "string"
+        },
+        "p_bio_insp_deficiencies": {
+            "required": false,
+            "type": "number"
+        },
+        "p_bio_vio_last_year": {
+            "required": false,
+            "type": "string"
+        },
+        "p_msgp_rpt_year": {
+            "required": false,
+            "type": "string"
+        },
+        "p_vio_last_year": {
+            "required": false,
+            "type": "string"
+        },
+        "queryset": {
+            "required": false,
+            "type": "number"
+        },
+        "responseset": {
+            "required": false,
+            "type": "number"
+        },
+        "tablelist": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "maplist": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "summarylist": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "callback": {
+            "required": false,
+            "type": "string"
+        },
+        "qcolumns": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

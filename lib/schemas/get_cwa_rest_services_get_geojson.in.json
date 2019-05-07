@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "output": {
+            "required": false,
+            "type": "string"
+        },
+        "qid": {
+            "required": true,
+            "type": "string"
+        },
+        "callback": {
+            "required": false,
+            "type": "string"
+        },
+        "newsort": {
+            "required": false,
+            "type": "number"
+        },
+        "descending": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "qcolumns": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pretty_print": {
+            "required": false,
+            "type": "number"
+        }
+    }
+}

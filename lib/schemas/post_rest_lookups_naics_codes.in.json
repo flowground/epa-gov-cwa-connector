@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "output": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "JSONP",
+                "JSON",
+                "XML"
+            ]
+        },
+        "callback": {
+            "required": false,
+            "type": "string"
+        },
+        "search_term": {
+            "required": false,
+            "type": "string"
+        },
+        "search_code": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

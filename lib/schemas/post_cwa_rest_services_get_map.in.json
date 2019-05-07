@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "properties": {
+        "output": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "JSONP",
+                "JSON",
+                "XML"
+            ]
+        },
+        "qid": {
+            "required": true,
+            "type": "string"
+        },
+        "callback": {
+            "required": false,
+            "type": "string"
+        },
+        "tablelist": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "c1_lat": {
+            "required": false,
+            "type": "number"
+        },
+        "c1_long": {
+            "required": false,
+            "type": "number"
+        },
+        "c2_lat": {
+            "required": false,
+            "type": "number"
+        },
+        "c2_long": {
+            "required": false,
+            "type": "number"
+        },
+        "p_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

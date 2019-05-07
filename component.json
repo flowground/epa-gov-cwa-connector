@@ -1,0 +1,642 @@
+{
+    "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Clean Water Act (CWA) Rest Services",
+    "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and Compliance Assurance for public use. ECHO provides integrated compliance and enforcement information for about 800,000 regulated facilities nationwide.\n<BR><BR>CWA Rest Services provides multiple service endpoints, each with specific capabilities, to search and retrieve data on facilities regulated under the Clean Water Act (CWA) and managed under the National Pollutant Discharge Elimination System (NPDES) program. The returned results reflect data drawn from EPA's ICIS-NPDES database.\n<BR><BR>\nThe get_facilities, get_map, get_qid, and get_download end points are meant to be used together, while the enhanced get_facility_info end point is self contained.\n  The get_facility_info end point returns either an array of state, county or zip clusters with summary statistics per cluster or an array of facilities.\n<br><br>\nThe recommended use scenario for get_facilities, get_qid, get_map, and get_downoad is:\n<br>\n<br><b>1)</b>  Use get_facilities to validate passed query parameters, obtain summary statistics and to obtain a query_id (QID).  QIDs are time sensitive and will be valid for approximately 30 minutes.\n<br><b>2)</b>  Use get_qid, with the returned QID, to paginate through arrays of facility results.\n<br><b>3)</b>  Use get_map, with the returned QID, to zoom in/out and pan on the clustered and individual facility coordinates that meet the QID query criteria.\n<br><b>4)</b>  Use get_download, with the returned QID, to generate a Comma Separated Value (CSV) file of facility information that meets the QID query criteria.\n<br>\n<br>\nUse the qcolumns parameter to customize your search results.  Use the Metdata service endpoint for a list of available output objects, their Column Ids, and their definitions to help you build your customized output. \n<br><br>\nAdditional ECHO Resources:   <a href=\"https://echo.epa.gov/tools/web-services\">Web Services</a>, <a href=\"https://echo.epa.gov/resources/echo-data/about-the-data\">About ECHO's Data</a>, <a href=\"https://echo.epa.gov/tools/data-downloads\">Data Downloads</a>\n<br>",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/epa.gov/cwa/0.0.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://ofmpub.epa.gov/echo",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_cwa_rest_services_get_download": {
+            "main": "./lib/actions/get_cwa_rest_services_get_download.js",
+            "title": "Clean Water Act (CWA) Download Data Service",
+            "description": "Based on the QID obtained from a get_facilities or get_facility_info query, return a comma separated value (CSV) file of the facilities found.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_cwa_rest_services_get_download.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_cwa_rest_services_get_download": {
+            "main": "./lib/actions/post_cwa_rest_services_get_download.js",
+            "title": "Clean Water Act (CWA) Download Data Service",
+            "description": "Based on the QID obtained from a get_facilities or get_facility_info query, return a comma separated value (CSV) file of the facilities found.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_cwa_rest_services_get_download.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_cwa_rest_services_get_facilities": {
+            "main": "./lib/actions/get_cwa_rest_services_get_facilities.js",
+            "title": "Clean Water Act (CWA) Facility Search Service",
+            "description": "Validates query search parameters and returns query identifier.  Use the responseset parameter to set the page size",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_cwa_rest_services_get_facilities.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_cwa_rest_services_get_facilities": {
+            "main": "./lib/actions/post_cwa_rest_services_get_facilities.js",
+            "title": "Clean Water Act (CWA) Facility Search Service",
+            "description": "Validates query search parameters and returns query identifier.  Use the responseset parameter to set the page size",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_cwa_rest_services_get_facilities.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_cwa_rest_services_get_facility_info": {
+            "main": "./lib/actions/get_cwa_rest_services_get_facility_info.js",
+            "title": "Clean Water Act (CWA) Facility Enhanced Search Service",
+            "description": "Returns either an array of Facilities or an array of Clusters that meet the specified search criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_cwa_rest_services_get_facility_info.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_cwa_rest_services_get_facility_info": {
+            "main": "./lib/actions/post_cwa_rest_services_get_facility_info.js",
+            "title": "Clean Water Act (CWA) Facility Enhanced Search Service",
+            "description": "Returns either an array of Facilities or an array of Clusters that meet the specified search criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_cwa_rest_services_get_facility_info.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_cwa_rest_services_get_geojson": {
+            "main": "./lib/actions/get_cwa_rest_services_get_geojson.js",
+            "title": "Clean Water Act (CWA) GeoJSON Service",
+            "description": "Based on the QID obtained from a get_facilities or get_facility_info query, return GeoJSON of the facilities found.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_cwa_rest_services_get_geojson.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_cwa_rest_services_get_geojson": {
+            "main": "./lib/actions/post_cwa_rest_services_get_geojson.js",
+            "title": "Clean Water Act (CWA) GeoJSON Service",
+            "description": "Based on the QID obtained from a get_facilities or get_facility_info query, return GeoJSON of the facilities found.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_cwa_rest_services_get_geojson.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_cwa_rest_services_get_info_clusters": {
+            "main": "./lib/actions/get_cwa_rest_services_get_info_clusters.js",
+            "title": "Clean Water Act (CWA) Info Clusters Service",
+            "description": "Based on the QID obtained from a clustered get_facility_info query, download cluster facility information as either a CSV or GEOJSON file.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_cwa_rest_services_get_info_clusters.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_cwa_rest_services_get_info_clusters": {
+            "main": "./lib/actions/post_cwa_rest_services_get_info_clusters.js",
+            "title": "Clean Water Act (CWA) Info Clusters Service",
+            "description": "Based on the QID obtained from a clustered get_facility_info query, download cluster facility information as either a CSV or GEOJSON file.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_cwa_rest_services_get_info_clusters.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_cwa_rest_services_get_map": {
+            "main": "./lib/actions/get_cwa_rest_services_get_map.js",
+            "title": "Clean Water Act (CWA) Map Service",
+            "description": "The purpose of the GET_MAP service is to display facility coordinates and facility clusters related to a get_facilities facility query. Currently, the maximum number of coordinates returned is 500. GET_MAP performs automatic clustering at the state, county, and zip code levels to maximize the number of coordinates returned.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_cwa_rest_services_get_map.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_cwa_rest_services_get_map": {
+            "main": "./lib/actions/post_cwa_rest_services_get_map.js",
+            "title": "Clean Water Act (CWA) Map Service",
+            "description": "The purpose of the GET_MAP service is to display facility coordinates and facility clusters related to a get_facilities facility query. Currently, the maximum number of coordinates returned is 500. GET_MAP performs automatic clustering at the state, county, and zip code levels to maximize the number of coordinates returned.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_cwa_rest_services_get_map.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_cwa_rest_services_get_qid": {
+            "main": "./lib/actions/get_cwa_rest_services_get_qid.js",
+            "title": "Clean Water Act (CWA) Paginated Results Service",
+            "description": "GET_QID is passed with a query ID corresponding to a previously run get_facilities query. It then returns a Facility object containing all matching facilities. The main purpose of GET_QID is for large querysets that contain multiple pages (responsesets) of output. GET_QID allows for pagination and for the selection and sorting of columns. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_cwa_rest_services_get_qid.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_cwa_rest_services_get_qid": {
+            "main": "./lib/actions/post_cwa_rest_services_get_qid.js",
+            "title": "Clean Water Act (CWA) Paginated Results Service",
+            "description": "GET_QID is passed with a query ID corresponding to a previously run get_facilities query. It then returns a Facility object containing all matching facilities. The main purpose of GET_QID is for large querysets that contain multiple pages (responsesets) of output. GET_QID allows for pagination and for the selection and sorting of columns. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_cwa_rest_services_get_qid.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_cwa_rest_services_metadata": {
+            "main": "./lib/actions/get_cwa_rest_services_metadata.js",
+            "title": "Clean Water Act (CWA) Metadata Service",
+            "description": "Returns the JSON Object Name and ColumnId for usage with the qcolumns parameter for get_qid, get_facility_info and other service endpoints.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_cwa_rest_services_metadata.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_cwa_rest_services_metadata": {
+            "main": "./lib/actions/post_cwa_rest_services_metadata.js",
+            "title": "Clean Water Act (CWA) Metadata Service",
+            "description": "Returns the JSON Object Name and ColumnId for usage with the qcolumns parameter for get_qid, get_facility_info and other service endpoints.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_cwa_rest_services_metadata.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_rest_lookups_bp_tribes": {
+            "main": "./lib/actions/get_rest_lookups_bp_tribes.js",
+            "title": "ECHO BP Tribes Lookup Service",
+            "description": "Returns the EPA Standard Indian Tribes and Native Alaskan Villages tribal_id and tribe_name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_rest_lookups_bp_tribes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_rest_lookups_bp_tribes": {
+            "main": "./lib/actions/post_rest_lookups_bp_tribes.js",
+            "title": "ECHO BP Tribes Lookup Service",
+            "description": "Returns the EPA Standard Indian Tribes and Native Alaskan Villages tribal_id and tribe_name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_rest_lookups_bp_tribes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_rest_lookups_cwa_parameters": {
+            "main": "./lib/actions/get_rest_lookups_cwa_parameters.js",
+            "title": "ECHO CWA Parameter Lookup Service",
+            "description": "Look up Clean Water Act parameter codes and descriptions in the Integrated Compliance Information System - National Pollutant Discharge Elimination System (ICIS-NPDES) by code or term.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_rest_lookups_cwa_parameters.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_rest_lookups_cwa_parameters": {
+            "main": "./lib/actions/post_rest_lookups_cwa_parameters.js",
+            "title": "ECHO CWA Parameter Lookup Service",
+            "description": "Look up Clean Water Act parameter codes and descriptions in the Integrated Compliance Information System - National Pollutant Discharge Elimination System (ICIS-NPDES) by code or term.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_rest_lookups_cwa_parameters.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_rest_lookups_cwa_pollutants": {
+            "main": "./lib/actions/get_rest_lookups_cwa_pollutants.js",
+            "title": "ECHO CWA Pollutants Lookup Service",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_rest_lookups_cwa_pollutants.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_rest_lookups_cwa_pollutants": {
+            "main": "./lib/actions/post_rest_lookups_cwa_pollutants.js",
+            "title": "ECHO CWA Pollutants Lookup Service",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_rest_lookups_cwa_pollutants.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_rest_lookups_federal_agencies": {
+            "main": "./lib/actions/get_rest_lookups_federal_agencies.js",
+            "title": "ECHO Federal Agency Lookup Service",
+            "description": "Look up Federal Agency Code",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_rest_lookups_federal_agencies.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_rest_lookups_federal_agencies": {
+            "main": "./lib/actions/post_rest_lookups_federal_agencies.js",
+            "title": "ECHO Federal Agency Lookup Service",
+            "description": "Look up Federal Agency Code",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_rest_lookups_federal_agencies.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_rest_lookups_icis_inspection_types": {
+            "main": "./lib/actions/get_rest_lookups_icis_inspection_types.js",
+            "title": "ECHO ICIS NPDES Inspection Types Lookup Service",
+            "description": "Returns the ICIS NPDES Compliance Monitoring Type Code and Description.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_rest_lookups_icis_inspection_types.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_rest_lookups_icis_inspection_types": {
+            "main": "./lib/actions/post_rest_lookups_icis_inspection_types.js",
+            "title": "ECHO ICIS NPDES Inspection Types Lookup Service",
+            "description": "Returns the ICIS NPDES Compliance Monitoring Type Code and Description.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_rest_lookups_icis_inspection_types.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_rest_lookups_icis_law_sections": {
+            "main": "./lib/actions/get_rest_lookups_icis_law_sections.js",
+            "title": "ECHO ICIS Law Sections Lookup Service",
+            "description": "Returns the ICIS Law Section Descriptions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_rest_lookups_icis_law_sections.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_rest_lookups_icis_law_sections": {
+            "main": "./lib/actions/post_rest_lookups_icis_law_sections.js",
+            "title": "ECHO ICIS Law Sections Lookup Service",
+            "description": "Returns the ICIS Law Section Descriptions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_rest_lookups_icis_law_sections.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_rest_lookups_naics_codes": {
+            "main": "./lib/actions/get_rest_lookups_naics_codes.js",
+            "title": "ECHO NAICS Codes Lookup Service",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_rest_lookups_naics_codes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_rest_lookups_naics_codes": {
+            "main": "./lib/actions/post_rest_lookups_naics_codes.js",
+            "title": "ECHO NAICS Codes Lookup Service",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_rest_lookups_naics_codes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_rest_lookups_npdes_parameters": {
+            "main": "./lib/actions/get_rest_lookups_npdes_parameters.js",
+            "title": "ECHO NPDES Parameters Lookup Service",
+            "description": "ICIS Limit Parameter Code and Name lookup based on the supply of a partial parameter name. (NPDES = National Pollutant Discharge Elimination System)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_rest_lookups_npdes_parameters.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_rest_lookups_npdes_parameters": {
+            "main": "./lib/actions/post_rest_lookups_npdes_parameters.js",
+            "title": "ECHO NPDES Parameters Lookup Service",
+            "description": "ICIS Limit Parameter Code and Name lookup based on the supply of a partial parameter name. (NPDES = National Pollutant Discharge Elimination System)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_rest_lookups_npdes_parameters.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_rest_lookups_wbd_code_lu": {
+            "main": "./lib/actions/get_rest_lookups_wbd_code_lu.js",
+            "title": "ECHO WBD Code Lookup Service",
+            "description": "USGS Watershed Boundary Dataset (WBD) Name lookup based on a supplied WBD Code and Watershed Level",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_rest_lookups_wbd_code_lu.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_rest_lookups_wbd_code_lu": {
+            "main": "./lib/actions/post_rest_lookups_wbd_code_lu.js",
+            "title": "ECHO WBD Code Lookup Service",
+            "description": "USGS Watershed Boundary Dataset (WBD) Name lookup based on a supplied WBD Code and Watershed Level",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_rest_lookups_wbd_code_lu.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_rest_lookups_wbd_name_lu": {
+            "main": "./lib/actions/get_rest_lookups_wbd_name_lu.js",
+            "title": "ECHO WBD Name Lookup Service",
+            "description": "USGS Watershed Boundary Dataset (WBD) Code lookup based on a supplied WBD Name and Watershed Level",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_rest_lookups_wbd_name_lu.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_rest_lookups_wbd_name_lu": {
+            "main": "./lib/actions/post_rest_lookups_wbd_name_lu.js",
+            "title": "ECHO WBD Name Lookup Service",
+            "description": "USGS Watershed Boundary Dataset (WBD) Code lookup based on a supplied WBD Name and Watershed Level",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_rest_lookups_wbd_name_lu.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

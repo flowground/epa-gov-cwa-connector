@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "output": {
+            "required": false,
+            "type": "string"
+        },
+        "qid": {
+            "required": true,
+            "type": "string"
+        },
+        "qcolumns": {
+            "required": false,
+            "type": "string"
+        },
+        "p_pretty_print": {
+            "required": false,
+            "type": "number"
+        }
+    }
+}

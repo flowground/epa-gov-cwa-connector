@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "output": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "JSONP",
+                "JSON",
+                "XML"
+            ]
+        },
+        "qid": {
+            "required": true,
+            "type": "string"
+        },
+        "pageno": {
+            "required": false,
+            "type": "number",
+            "default": 1
+        },
+        "callback": {
+            "required": false,
+            "type": "string"
+        },
+        "newsort": {
+            "required": false,
+            "type": "number"
+        },
+        "descending": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Y",
+                "N"
+            ]
+        },
+        "qcolumns": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
